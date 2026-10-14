@@ -7,35 +7,9 @@ public class Main {
     public static void main(String[] args){
         //System.out.println(longestSentence(new File("C:\\users\\corvi\\onedrive\\desktop\\notes.txt")));
         //projectEuler1();
-        int[][] A = new int[][] {{1,2,4},
-                {3,-2,1},
-                {0,-3,2}};
-        int[][] B =  new int[][]{{2, 3, 1},
-                {4, 7, 5},
-                {0, -2, 2}};
-        int[][] C = new int[][]{{1, 2, 3},
-                {4,5,6},
-                {7,8,9}};
-        int[][] D = new int[][]{
-                {1,2,3},
-                {4,5,6}
-        };
-        int[][] E = new int[][]{
-                {6,7},
-                {8,9},
-                {10,11}
-        };
-        int[][] I = new int[][]{{1,0,0},
-                {0,1,0},
-                {0,0,1}};
-        int[] v = new int[] {1,2,4};
-        int[] b = new int[] {-3,1,1};
+        //LinearAlgebra.tester();
 
-        //System.out.println(LinearAlgebra.getTheta(v,b)/Math.PI);
-        System.out.println(matrixToStrings(LinearAlgebra.left_matrix_multiplication(D,E)));
-        System.out.println(matrixToStrings(LinearAlgebra.left_matrix_multiplication(E,D)));
-
-        System.out.println(LinearAlgebra.dot_product_vectors(v,b));
+        whatFactorialIsOverflow();
     }
 
     public static String matrixToStrings(int[][] a){
@@ -45,6 +19,14 @@ public class Main {
         }
         return builder.toString();
     }
+    public static String matrixToStrings(double[][] a) {
+        StringBuilder builder = new StringBuilder();
+        for (double[] doubles : a) {
+            builder.append(Arrays.toString(doubles)).append("\n");
+        }
+        return builder.toString();
+    }
+
     public static String longestSentence(File file) {
         String full_text = "";
         try {
@@ -109,5 +91,15 @@ public class Main {
         System.out.println(o);
     }
 
+    public static void whatFactorialIsOverflow() {
+        int a = 1;
+        for (int i = 1; i < 31; i++) {
+            a*=i;
+            if(a<0)
+                break;
+            System.out.println(i + " : " + a);
+            // up to 12
+        }
+    }
 
 }
